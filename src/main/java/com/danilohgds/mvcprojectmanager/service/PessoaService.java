@@ -20,7 +20,7 @@ public class PessoaService {
         return pessoaRepository.save(pessoaDTO);
     }
 
-    public PessoaDTO getPessoa(int id) {
+    public PessoaDTO getPessoaById(int id) {
         return pessoaRepository.getPessoaDTOById(id);
     }
 
