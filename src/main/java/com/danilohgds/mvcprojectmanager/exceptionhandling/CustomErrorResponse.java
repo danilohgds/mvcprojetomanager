@@ -1,4 +1,4 @@
-package com.danilohgds.mvcprojectmanager.model;
+package com.danilohgds.mvcprojectmanager.exceptionhandling;
 
 public class CustomErrorResponse {
     private int status;

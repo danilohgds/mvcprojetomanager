@@ -1,6 +1,5 @@
 package com.danilohgds.mvcprojectmanager.exceptionhandling;
 
-import com.danilohgds.mvcprojectmanager.model.CustomErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
