@@ -6,6 +6,7 @@ import com.danilohgds.mvcprojectmanager.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,12 +32,12 @@ public class PessoaController {
     }
 
     @PostMapping(path="/pessoas/")
-    ResponseEntity<PessoaDTO> updatePessoa(@RequestBody PessoaDTO pessoaDTO){
+    ResponseEntity<PessoaDTO> updatePessoa(@RequestBody @Validated PessoaDTO pessoaDTO){
         return ResponseEntity.ok(pessoaService.updatePessoa(pessoaDTO));
     }
 
     @PutMapping(path="/pessoas/")
-    ResponseEntity<PessoaDTO> createPessoa(@RequestBody PessoaDTO pessoaDTO){
+    ResponseEntity<PessoaDTO> createPessoa(@RequestBody @Validated PessoaDTO pessoaDTO){
         return ResponseEntity.ok(pessoaService.createPessoa(pessoaDTO));
     }
 
