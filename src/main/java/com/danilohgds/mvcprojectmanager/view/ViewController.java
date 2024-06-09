@@ -1,5 +1,7 @@
 package com.danilohgds.mvcprojectmanager.view;
 
+import com.danilohgds.mvcprojectmanager.exceptionhandling.BadRequestException;
+import com.danilohgds.mvcprojectmanager.exceptionhandling.ResourceNotFoundException;
 import com.danilohgds.mvcprojectmanager.model.MembroDTO;
 import com.danilohgds.mvcprojectmanager.model.ProjetoDTO;
 import com.danilohgds.mvcprojectmanager.service.MembroService;
@@ -11,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.beans.PropertyEditorSupport;
@@ -95,7 +96,7 @@ public class ViewController {
     }
 
     @PostMapping("/delete-projeto")
-    public RedirectView deleteProjeto(@RequestParam int idprojeto) throws Exception {
+    public RedirectView deleteProjeto(@RequestParam int idprojeto) throws BadRequestException, ResourceNotFoundException {
         final RedirectView redirectView = new RedirectView("/view-projetos", true);
         projetoService.deleteProjeto(idprojeto);
         return redirectView;

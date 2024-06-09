@@ -2,6 +2,8 @@ package com.danilohgds.mvcprojectmanager.service;
 
 
 import com.danilohgds.mvcprojectmanager.enums.StatusProjeto;
+import com.danilohgds.mvcprojectmanager.exceptionhandling.BadRequestException;
+import com.danilohgds.mvcprojectmanager.exceptionhandling.ResourceNotFoundException;
 import com.danilohgds.mvcprojectmanager.model.ProjetoDTO;
 import com.danilohgds.mvcprojectmanager.repository.ProjetoRepository;
 import jakarta.transaction.Transactional;
@@ -38,6 +40,10 @@ public class ProjetoService {
 
         if(projeto.isPresent() && StatusProjeto.valueOf(projeto.get().getStatus().toUpperCase().replace(" ", "_")).podeExcluir()){
             projetoRepository.deleteById(id);
+        }else if (projeto.isPresent()) {
+            throw new BadRequestException("Cannot delete a project with Status:" + projeto.get().getStatus());
+        }else{
+            throw new ResourceNotFoundException("Cannot Find Projeto");
         }
     }
 
