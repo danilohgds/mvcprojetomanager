@@ -1,5 +1,8 @@
 package com.danilohgds.mvcprojectmanager.enums;
 
+import java.util.Arrays;
+import java.util.function.Predicate;
+
 public enum StatusProjeto {
     ANALISE_APROVADA {
         @Override
@@ -52,7 +55,7 @@ public enum StatusProjeto {
 
     @SuppressWarnings("unused")
     public abstract boolean podeExcluir();
-    
+
     StatusProjeto getEnum(String nomeStatus){
         // Handling NON-ASCII characters in Enum values
         if(nomeStatus.equalsIgnoreCase("em análise")) {
