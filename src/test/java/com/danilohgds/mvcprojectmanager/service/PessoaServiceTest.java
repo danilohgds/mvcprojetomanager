@@ -45,7 +45,7 @@ class PessoaServiceTest {
         when(pessoaRepository.save(pessoaDTO)).thenReturn(pessoaDTO);
 
         // When
-        PessoaDTO savedPessoa = pessoaService.createPessoa(pessoaDTO);
+        PessoaDTO savedPessoa = pessoaService.savePessoa(pessoaDTO);
 
         // Then
         assertThat(savedPessoa).isEqualTo(pessoaDTO);

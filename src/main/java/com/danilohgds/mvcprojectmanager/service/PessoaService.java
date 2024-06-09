@@ -16,7 +16,7 @@ public class PessoaService {
     PessoaService(@Autowired PessoaRepository pessoaRepository){
         this.pessoaRepository = pessoaRepository;
     }
-    public PessoaDTO createPessoa(PessoaDTO pessoaDTO) {
+    public PessoaDTO savePessoa(PessoaDTO pessoaDTO) {
         return pessoaRepository.save(pessoaDTO);
     }
 

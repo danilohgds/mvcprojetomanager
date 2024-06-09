@@ -38,7 +38,7 @@ public class PessoaController {
 
     @PutMapping(path="/pessoas/")
     ResponseEntity<PessoaDTO> createPessoa(@RequestBody @Validated PessoaDTO pessoaDTO){
-        return ResponseEntity.ok(pessoaService.createPessoa(pessoaDTO));
+        return ResponseEntity.ok(pessoaService.savePessoa(pessoaDTO));
     }
 
     @DeleteMapping(path="/pessoas/{id}")
