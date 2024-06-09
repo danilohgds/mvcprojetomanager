@@ -17,7 +17,8 @@ import java.util.List;
 public class ProjetoController {
     private final ProjetoService projetoService;
 
-    ProjetoController(@Autowired ProjetoService projetoService){
+    @Autowired
+    ProjetoController(ProjetoService projetoService){
         this.projetoService = projetoService;
     }
 

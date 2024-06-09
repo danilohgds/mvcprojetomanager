@@ -14,7 +14,8 @@ public class MembroController {
 
     final MembroService membroService;
 
-    MembroController(@Autowired MembroService membroService){
+    @Autowired
+    MembroController( MembroService membroService){
         this.membroService = membroService;
     }
 
