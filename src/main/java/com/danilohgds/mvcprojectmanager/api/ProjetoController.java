@@ -28,4 +28,21 @@ public class ProjetoController {
     ResponseEntity<ProjetoDTO> getProjeto(@PathVariable int id){
         return ResponseEntity.ok(projetoService.getProjeto(id));
     }
+
+
+    @PutMapping(path = "/projetos/")
+    ResponseEntity<ProjetoDTO> createProjeto(@RequestBody ProjetoDTO projeto){
+        return ResponseEntity.ok(projetoService.saveProjeto(projeto));
+    }
+
+    @PostMapping(path = "/projetos/")
+    ResponseEntity<ProjetoDTO> updateProjeto(@RequestBody @Validated ProjetoDTO projeto){
+        return ResponseEntity.ok(projetoService.updateProjeto(projeto));
+    }
+
+    @DeleteMapping(path = "/projetos/{id}")
+    HttpStatus deleteProjeto(@PathVariable int id) throws Exception {
+        projetoService.deleteProjeto(id);
+        return HttpStatus.ACCEPTED;
+    }
 }
