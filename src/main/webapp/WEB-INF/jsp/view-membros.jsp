@@ -30,7 +30,7 @@
         </div>
     </nav>
     <div class="text-bg-primary p-3">
-        <b>Gerenciador de Projetos - Lista de Membros</b>
+        <b>Gerenciador de Projetos - Lista de Membros x Projeto</b>
     </div>
     <table class="table table-info">
             <thead>
