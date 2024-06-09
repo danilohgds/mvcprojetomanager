@@ -63,7 +63,8 @@ class PessoaControllerTest {
     void testUpdatePessoa() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/api/pessoas/")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"id\":1,\"nome\":\"Joao Dasilva\"}"))
+                        .content("""
+                                {"id":1,"nome":"Joao Dasilva", "cpf": "000.000.000", "funcionario": "false",  "gerente": "false" }"""))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.nome", is("Joao Dasilva")));
@@ -73,7 +74,8 @@ class PessoaControllerTest {
     void testCreatePessoa() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.put("/api/pessoas/")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"id\":1,\"nome\":\"Joao Dasilva\"}"))
+                        .content("""
+                                {"id":1,"nome":"Joao Dasilva", "cpf": "000.000.000", "funcionario": "false",  "gerente": "false" }"""))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.nome", is("Joao Dasilva")));
