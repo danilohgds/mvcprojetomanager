@@ -71,10 +71,10 @@
                 </c:forEach>
             </tbody>
         </table>
-    <form action="${pageContext.request.contextPath}/create-projeto" method="get">
+    <form style="display: inline-block !important;" action="${pageContext.request.contextPath}/create-projeto" method="get">
         <button type="submit" class="btn btn-primary">Criar Projeto</button>
     </form>
-    <form action="${pageContext.request.contextPath}/view-membros" method="get">
+    <form style="display: inline-block !important;" action="${pageContext.request.contextPath}/view-membros" method="get">
         <button type="submit" class="btn btn-primary">Ver Membros</button>
     </form>
     </body>
