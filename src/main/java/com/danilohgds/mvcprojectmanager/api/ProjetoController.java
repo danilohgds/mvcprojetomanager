@@ -19,4 +19,13 @@ public class ProjetoController {
         this.projetoService = projetoService;
     }
 
+    @GetMapping(path = "/projetos/")
+    ResponseEntity<List<ProjetoDTO>> getProjetos(){
+        return ResponseEntity.ok(projetoService.listAllProjetos());
+    }
+
+    @GetMapping(path = "/projetos/{id}")
+    ResponseEntity<ProjetoDTO> getProjeto(@PathVariable int id){
+        return ResponseEntity.ok(projetoService.getProjeto(id));
+    }
 }
