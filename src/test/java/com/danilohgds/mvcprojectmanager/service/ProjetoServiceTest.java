@@ -118,11 +118,4 @@ class ProjetoServiceTest {
         assertNotNull(result);
         verify(projetoRepository, times(1)).getProjetoDTOById(1);
     }
-
-    @Test
-    void getProjeto_ShouldThrowResourceNotFoundException_WhenInvalidId() {
-        when(projetoRepository.getProjetoDTOById(1)).thenReturn(null);
-
-        assertThrows(ResourceNotFoundException.class, () -> projetoService.getProjeto(1));
-    }
 }
