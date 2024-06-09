@@ -62,7 +62,19 @@ public class ViewController {
         return model;
     }
 
+    @RequestMapping("/view-membros")
+    public ModelAndView viewMembro(ModelAndView model) {
+        model.setViewName("view-membros");
+        model.addObject("membros", membroService.getAllMembros());
+        return model;
+    }
 
+    @RequestMapping("/view-projetos")
+    public ModelAndView viewProjects(ModelAndView model) {
+        model.setViewName("view-projetos");
+        model.addObject("projetos", projetoService.listAllProjetos());
+        return model;
+    }
 
     @GetMapping("/create-membro")
     public String showCreateMembroPage(Model model) {
@@ -72,34 +84,11 @@ public class ViewController {
         return "create-membro";
     }
 
-    @PostMapping("/create-membro")
-    public RedirectView createMembro(@ModelAttribute("membro") MembroDTO membroDTO) {
-        final RedirectView redirectView = new RedirectView("/view-membros", true);
-        membroService.saveMembro(membroDTO);
-        return redirectView;
-    }
-
-
-
-    @RequestMapping("/view-projetos")
-    public ModelAndView viewProjects(ModelAndView model) {
-        model.setViewName("view-projetos");
-        model.addObject("projetos", projetoService.listAllProjetos());
-        return model;
-    }
-
     @GetMapping("/create-projeto")
     public String showCreateProjetoPage(Model model) {
         model.addAttribute("command", new ProjetoDTO());
         model.addAttribute(PESSOAS, pessoaService.getAllPessoas());
         return "create-projeto";
-    }
-
-    @PostMapping("/delete-projeto")
-    public RedirectView deleteProjeto(@RequestParam int idprojeto) throws BadRequestException, ResourceNotFoundException {
-        final RedirectView redirectView = new RedirectView("/view-projetos", true);
-        projetoService.deleteProjeto(idprojeto);
-        return redirectView;
     }
 
     @PostMapping("/create-projeto")
@@ -108,4 +97,19 @@ public class ViewController {
         projetoService.saveProjeto(projeto);
         return redirectView;
     }
+
+    @PostMapping("/create-membro")
+    public RedirectView createMembro(@ModelAttribute("membro") MembroDTO membroDTO) {
+        final RedirectView redirectView = new RedirectView("/view-membros", true);
+        membroService.saveMembro(membroDTO);
+        return redirectView;
+    }
+    @PostMapping("/delete-projeto")
+    public RedirectView deleteProjeto(@RequestParam int idprojeto) throws BadRequestException, ResourceNotFoundException {
+        final RedirectView redirectView = new RedirectView("/view-projetos", true);
+        projetoService.deleteProjeto(idprojeto);
+        return redirectView;
+    }
+
+
 }
